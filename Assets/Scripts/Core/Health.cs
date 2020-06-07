@@ -39,9 +39,9 @@ namespace RPG.Core
         {
             if (!isDead)
             {
-                isDead = true;
-                animator.SetTrigger("die");
                 actionScheduler.CancelCurrentAction();
+                animator.SetTrigger("die");
+                isDead = true;
                 navMeshAgent.enabled = false;
             }
         }
