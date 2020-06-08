@@ -167,7 +167,10 @@ GameObject:
   - component: {fileID: 65095493}
   - component: {fileID: 65095495}
   - component: {fileID: 65095494}
-  m_Layer: 0
+  - component: {fileID: 65095496}
+  - component: {fileID: 65095497}
+  - component: {fileID: 65095498}
+  m_Layer: 2
   m_Name: Intro Sequence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,8 +185,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65095492}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -9.2, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 6.689, z: 29.816887}
   m_Children: []
   m_Father: {fileID: 887286656}
   m_RootOrder: 0
@@ -217,7 +220,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 0817657c0daafc643a3833bccde43b76, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -236,6 +239,47 @@ PlayableDirector:
     - 00f0c148bf7a2b0408fe9b79c0aa68e6: {fileID: 1799595664}
     - 792193d8b0b33ac40b9ae4c3cc32d0e2: {fileID: 1799595664}
     - 87fae3b58f159b5438b2b6ea9cf0eb7a: {fileID: 449932771}
+--- !u!65 &65095496
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65095492}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &65095497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65095492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3f3f9927ba3ade4e8c139c5283c03c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &65095498
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65095492}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &76793104
 GameObject:
   m_ObjectHideFlags: 3
@@ -5048,7 +5092,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 449932769}
-  m_LocalRotation: {x: -0.008356219, y: -0.99159366, z: 0.08615674, w: -0.096173234}
+  m_LocalRotation: {x: -0.008356214, y: -0.99159366, z: 0.086156726, w: -0.09617323}
   m_LocalPosition: {x: -12.512978, y: 9.770381, z: 8.913345}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
