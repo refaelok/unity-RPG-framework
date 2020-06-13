@@ -77,6 +77,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneToLoad: 1
   spawwnPoint: {fileID: 8968866709354778213}
+  destination: 0
+  fadeOutTime: 0.5
+  fadeInTime: 1
+  fadeWaitTime: 0.5
 --- !u!1 &8404946739837554982
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,7 +105,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8404946739837554982}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.62, y: -1.92, z: 7.62}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5975414291400771255}
