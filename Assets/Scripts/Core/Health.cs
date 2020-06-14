@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using RPG.Saving;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace RPG.Core
 {
-    public class Health : MonoBehaviour
+    public class Health : MonoBehaviour, ISaveable
     {
         [SerializeField] float healthPoint = 100f;
 
@@ -13,13 +14,6 @@ namespace RPG.Core
         ActionScheduler actionScheduler;
         NavMeshAgent navMeshAgent;
         bool isDead;
-
-        private void Start()
-        {
-            animator = GetComponent<Animator>();
-            actionScheduler = GetComponent<ActionScheduler>();
-            navMeshAgent = GetComponent<NavMeshAgent>();
-        }
 
         public bool IsDead()
         {
@@ -39,10 +33,25 @@ namespace RPG.Core
         {
             if (!isDead)
             {
-                actionScheduler.CancelCurrentAction();
-                animator.SetTrigger("die");
+                GetComponent<ActionScheduler>().CancelCurrentAction();
+                GetComponent<Animator>().SetTrigger("die");
                 isDead = true;
-                navMeshAgent.enabled = false;
+                GetComponent<NavMeshAgent>().enabled = false;
+            }
+        }
+
+        public object CaptureState()
+        {
+            return healthPoint;
+        }
+
+        public void RestoreState(object state)
+        {
+            healthPoint = (float)state;
+
+            if (healthPoint == 0)
+            {
+                Die();
             }
         }
     }
