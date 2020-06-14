@@ -58,15 +58,29 @@ namespace RPG.Movement
             animator.SetFloat("forwardSpeed", speed);
         }
 
+        [System.Serializable]
+        struct MoverSaveData
+        {
+            public SerializableVector3 position;
+            public SerializableVector3 rotation;
+        }
+
         public object CaptureState()
         {
-            return new SerializableVector3(transform.position);
+            MoverSaveData data = new MoverSaveData();
+
+            data.position = new SerializableVector3(transform.position);
+            data.rotation = new SerializableVector3(transform.position);
+
+            return data;
         }
 
         public void RestoreState(object state)
         {
-            SerializableVector3 position = (SerializableVector3)state;
-            GetComponent<NavMeshAgent>().Warp(position.ToVector());
+            MoverSaveData data = (MoverSaveData)state;
+
+            GetComponent<NavMeshAgent>().Warp(data.position.ToVector());
+            transform.eulerAngles = data.rotation.ToVector();
         }
     }
 }
