@@ -12,6 +12,8 @@ namespace RPG.Combat
         [SerializeField] float weaponRange = 1f;
         [SerializeField] float weaponDamage = 5f;
         [SerializeField] float attackSpeed = 1f;
+        [SerializeField] GameObject weaponPrefab = null;
+        [SerializeField] Transform handTransform = null;
 
         Mover mover;
         Animator animator;
@@ -20,6 +22,7 @@ namespace RPG.Combat
 
         private void Start()
         {
+            SpawnWeapon();
             mover = GetComponent<Mover>();
             animator = GetComponent<Animator>();
         }
@@ -96,6 +99,14 @@ namespace RPG.Combat
             animator.SetTrigger("stopAttack");
             target = null;
             mover.Cancel();
+        }
+
+        private void SpawnWeapon()
+        {
+            if (weaponPrefab)
+            {
+                Instantiate(weaponPrefab, handTransform);
+            }
         }
     }
 }
