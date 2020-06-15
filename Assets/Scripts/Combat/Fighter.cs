@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using RPG.Core;
 using RPG.Movement;
 using UnityEngine;
+using UnityEngine.XR;
 
 namespace RPG.Combat
 {
@@ -12,9 +13,8 @@ namespace RPG.Combat
         [SerializeField] float weaponRange = 1f;
         [SerializeField] float weaponDamage = 5f;
         [SerializeField] float attackSpeed = 1f;
-        [SerializeField] GameObject weaponPrefab = null;
         [SerializeField] Transform handTransform = null;
-        [SerializeField] AnimatorOverrideController weaponOverride = null;
+        [SerializeField] Weapon weapon = null;
 
         Mover mover;
         Animator animator;
@@ -104,11 +104,10 @@ namespace RPG.Combat
 
         private void SpawnWeapon()
         {
-            if (weaponPrefab)
+            if (weapon)
             {
-                Instantiate(weaponPrefab, handTransform);
                 Animator animator = GetComponent<Animator>();
-                animator.runtimeAnimatorController = weaponOverride;
+                weapon.Spawn(handTransform, animator);
             }
         }
     }
